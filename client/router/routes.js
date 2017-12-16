@@ -4,6 +4,7 @@ import App from '#app/components/app';
 import Homepage from '#app/components/homepage';
 import Usage from '#app/components/usage';
 import NotFound from '#app/components/not-found';
+import EnvelopesPageContainer from '#app/containers/envelopes-page-container';
 
 /**
  * Returns configured routes for different
@@ -26,10 +27,11 @@ export default ({store, first}) => {
   }
 
   return <Route path="/" component={App}>
-    <IndexRoute component={Homepage} onEnter={w(Homepage.onEnter)}/>
-    <Route path="/usage" component={Usage} onEnter={w(Usage.onEnter)}/>
-    {/* Server redirect in action */}
-    <Redirect from="/docs" to="/usage" />
-    <Route path="*" component={NotFound} onEnter={w(NotFound.onEnter)}/>
-  </Route>;
+            <IndexRoute component={Homepage} onEnter={w(Homepage.onEnter)} />
+            <Route path="/usage" component={Usage} onEnter={w(Usage.onEnter)} />
+            <Route path="/envelopes" component={EnvelopesPageContainer} onEnter={w(EnvelopesPageContainer.onEnter)} />
+            {/* Server redirect in action */}
+            <Redirect from="/docs" to="/usage" />
+            <Route path="*" component={NotFound} onEnter={w(NotFound.onEnter)}/>
+          </Route>;
 };
