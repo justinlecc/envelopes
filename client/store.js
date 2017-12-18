@@ -1,8 +1,9 @@
 import { applyMiddleware, createStore as reduxCreateStore } from 'redux';
 import { createLogger } from 'redux-logger';
+import thunkMiddleware from 'redux-thunk';
 import reducers from './reducers';
 
-const middlewares = [];
+const middlewares = [thunkMiddleware];
 
 // Add state logger
 if (process.env.NODE_ENV !== 'production') {
