@@ -1,4 +1,4 @@
-package: github.com/olebedev/go-starter-kit
+package: github.com/justinlecc/envelopes
 import:
 - package: github.com/codegangsta/cli
 - package: github.com/dop251/goja
