@@ -11,6 +11,7 @@ import (
   // "encoding/json"
   // "strconv"
   // "fmt"
+  "os"
 )
 
 // API is a defined as struct bundle
@@ -25,7 +26,7 @@ func (api *API) Bind(group *echo.Group) {
   var err error
   var connStr string
 
-  connStr = "postgresql://envelopesapp:makemoney@localhost:5432/envelopes?sslmode=disable" // remove sslmode for prod
+  connStr = os.Getenv("ENVELOPES_DB_URL")
   db, err = sql.Open("postgres", connStr)
   if err != nil {
     log.Fatal(err)
